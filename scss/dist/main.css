@@ -1,0 +1,5 @@
+.main-mov {
+  background-image: url("../asset/some1.jpg");
+  height: 40%;
+  background-size: cover;
+}

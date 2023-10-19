@@ -1,0 +1,72 @@
+.main-header {
+  background-image: url("../asset/some3.jpg");
+  height: 40%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 20px 70px;
+  position: relative;
+}
+.main-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10px;
+  background: linear-gradient(transparent, rgba(77, 77, 77, 0.2));
+}
+
+.Main-Title {
+  margin-top: 9%;
+  width: 50%;
+  color: white;
+}
+.Main-Title p {
+  font-size: 50px;
+  font-family: GOGODIC;
+}
+
+.Mov-Btn {
+  width: 50%;
+  margin-top: 20px;
+}
+.Mov-Btn .MBtn {
+  background-color: rgba(77, 77, 77, 0.5);
+  padding: 5px 15px;
+  font-size: 20px;
+  border: none;
+}
+.Mov-Btn p {
+  font-family: GOGODIC;
+}
+
+.Main-Content {
+  margin-top: 20px;
+  width: 60%;
+}
+
+.Select-Mov-Container {
+  margin-top: 5px;
+  background-color: black;
+}
+.Select-Mov-Container .select-Title {
+  margin-left: 50px;
+}
+.Select-Mov-Container .select-Movs-container {
+  margin: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.Select-Mov-Container .select-Movs-container .select-mov-container {
+  width: 13%;
+  padding: 10px;
+}
+.Select-Mov-Container .select-Movs-container .select-mov-container img {
+  z-index: 100;
+  width: 100%;
+  transition: all 0.3s;
+}
+.Select-Mov-Container .select-Movs-container .select-mov-container img:hover {
+  transform: scale(1.2);
+}/*# sourceMappingURL=main.css.map */

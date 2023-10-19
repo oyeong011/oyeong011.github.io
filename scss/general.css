@@ -1,0 +1,21 @@
+@font-face {
+  font-family: GOGODIC;
+  src: url("../asset/HakgyoansimGodeunjemokB.ttf");
+}
+p {
+  color: white;
+  font-family: GOGODIC;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+.main-mov {
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=general.css.map */

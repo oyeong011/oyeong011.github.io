@@ -1,0 +1,31 @@
+.header .header-right, .header .header-left {
+  display: flex;
+  width: 50%;
+  padding: 0px 10px;
+}
+
+.header,
+.main-mov,
+.main-header,
+.main,
+.Select-Mov-Container {
+  border: 1px solid grey;
+  background-color: aqua;
+  width: 100%;
+  height: 1000px;
+}
+
+.header {
+  background-color: black;
+  position: fixed;
+  z-index: 200;
+  height: 50px;
+  display: flex;
+  padding: 20px 0px;
+}
+.header .header-left {
+  justify-content: left;
+}
+.header .header-right {
+  justify-content: right;
+}

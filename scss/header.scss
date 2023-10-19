@@ -1,0 +1,32 @@
+%flex{
+    display: flex;
+    width: 50%;
+    padding: 0px 10px;
+}
+.header,
+.main-mov,
+.main-header,
+.main,
+.Select-Mov-Container{
+    width: 100%;
+}
+.header{
+    background-color: rgba($color: #000000, $alpha: 1);
+    position: fixed;
+    z-index: 200;
+    height: 50px;
+    display: flex;
+    padding: 20px 0px;
+    opacity: 0.8;
+    .header-left{
+        @extend %flex;
+        justify-content: left;
+        img{
+
+        }
+    }
+    .header-right{
+        @extend %flex;
+        justify-content: right;
+    }
+}
