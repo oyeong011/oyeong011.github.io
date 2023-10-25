@@ -1,0 +1,52 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+i, input{
+    user-select: none;
+    cursor: pointer;
+}
+.Container{
+    background-color: palevioletred;
+    width: 100%;
+}
+.head-container{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.create-todo{
+    user-select: none;
+    cursor: pointer;
+}
+.main-container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 40px;
+    .content-container{
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        background-color: #b4dbe5;
+        padding: 10px 20px;
+        border-radius: 20px;
+        .todo-content-input{
+            width: 700px;
+            background-color: #b4dbe5;
+            border: none;             /* 모든 border를 제거 */
+            border-bottom: 1px solid black; /* 아래쪽 border만 설정 */
+            outline: none;            /* 포커스 시 나타나는 outline 제거 */
+        }
+        .content-icon{
+            i{
+                margin-right: 10px;
+                font-size: 20px;
+            }
+        }
+    }
+}
