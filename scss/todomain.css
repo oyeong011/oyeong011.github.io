@@ -39,7 +39,8 @@ i, input {
   flex-direction: column;
   padding: 10px 40px;
 }
-.main-container .content-container {
+
+.content-container {
   margin-top: 30px;
   display: flex;
   justify-content: space-between;
@@ -47,14 +48,20 @@ i, input {
   padding: 10px 20px;
   border-radius: 20px;
 }
-.main-container .content-container .todo-content-input {
+.content-container .todo-content-input {
   width: 700px;
   background-color: #b4dbe5;
   border: none; /* 모든 border를 제거 */
-  border-bottom: 1px solid black; /* 아래쪽 border만 설정 */
   outline: none; /* 포커스 시 나타나는 outline 제거 */
 }
-.main-container .content-container .content-icon i {
+.content-container .content-icon i {
   margin-right: 10px;
   font-size: 20px;
-}/*# sourceMappingURL=main.css.map */
+}
+
+.checked-content-container {
+  filter: brightness(50%);
+}
+.checked-content-container input {
+  text-decoration: line-through;
+}/*# sourceMappingURL=todomain.css.map */

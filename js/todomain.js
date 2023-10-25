@@ -45,8 +45,12 @@ $(".create-todo").on("click", function(){
 )
 $(document).on("change", ".checkedBox", function () {
     getAndSelectItem.call(this)
-    todoContentList[checkIndex].checked = todoContentList[checkIndex].checked === true ? false : true;
+    trueOrFalse = todoContentList[checkIndex].checked === true ? false : true;
+    todoContentList[checkIndex].checked = trueOrFalse;
     localStorage.setItem('todo', JSON.stringify(todoContentList))
+    if(trueOrFalse){
+        $(this).closest(".content-container").toggleClass("checked-content-container");
+    }
 })
 
 $(document).on("click",".todo-content-inputBtn",function(){
