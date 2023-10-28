@@ -1,1 +1,72 @@
-/*# sourceMappingURL=github.css.map */
+.header {
+  height: 10%;
+  background-color: #4582EC;
+  font-size: 20px;
+  padding: 20px;
+  align-items: center;
+}
+.header p {
+  color: white;
+  font-weight: 6000;
+  margin: 0;
+  padding: 10px;
+}
+
+.searchContainer,
+.profileContainer {
+  border: grey solid 0.5px;
+  box-sizing: content-box;
+  margin: 20px;
+  padding: 40px 30px;
+}
+.searchContainer h1,
+.profileContainer h1 {
+  font-weight: 900;
+  margin-bottom: 20px;
+  font-size: 60px;
+}
+.searchContainer h4,
+.profileContainer h4 {
+  color: grey;
+  margin-bottom: 30px;
+}
+
+.profileContainer {
+  display: flex;
+}
+.profileContainer .card {
+  border: none;
+}
+.profileContainer .profileCarrer {
+  flex-grow: 10;
+}
+.profileContainer .profileCarrer .btn-group {
+  display: flex;
+  justify-content: space-around;
+}
+.profileContainer .profileCarrer .btn-group .btn {
+  margin: 10px;
+}
+
+.FooterContainer h1 {
+  font-weight: 900;
+  font-size: 50px;
+  padding: 20px;
+}
+.FooterContainer .ReposContainer {
+  margin: 20px;
+  padding: 20px 20px;
+  border: grey solid 0.5px;
+  display: flex;
+  justify-content: space-between;
+}
+.FooterContainer .ReposContainer a {
+  font-size: 20px;
+}
+.FooterContainer .ReposContainer .btn {
+  padding: 10px 20px;
+  color: white;
+  margin: 0px 5px;
+  border-radius: 5px;
+  background-color: #4582EC;
+}/*# sourceMappingURL=github.css.map */
