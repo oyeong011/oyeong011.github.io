@@ -1,4 +1,25 @@
-let profile = null; 
+let profile = null;
+let LastRepos = null
+const fetchGitHubRepos = async (username, token = null)=>{
+    const repo_url = `https://api.github.com/users/${username}/repos`;
+    const headers = {
+        'Authorization' : `token ${token}`
+    }
+    try {
+        const reposData = await fetch(repo_url, {headers : headers});
+        const data = await reposData.json();
+
+        if(reposData.status != 200){
+            console.error("Error fetching data : ", data.message);
+            return null;
+        }
+        LastRepos = data;
+        return data;
+    } catch (error) {
+        console.log("에러났슈", error);
+        return null;
+    }
+}
 
 const fetchGitHubUserInfo = async (username, token = null)=>{
     const base_url = `https://api.github.com/users/${username}`;
@@ -26,29 +47,48 @@ const fetchGitHubUserInfo = async (username, token = null)=>{
             blog: data.blog,                 
             created_at: data.created_at
         }
-        return profile;
     } catch (error){
         console.log("에러났슈", error);
         return null;
     }
 }
 $(".myForm").on("submit", function (e) {
-    e.preventDefault();  
-    fetchGitHubUserInfo($(".searchInput").val(), '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')
+    let inputName = $(".searchInput").val()
+    e.preventDefault();
+
+    fetchGitHubUserInfo(inputName, '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')
+    .then(()=>{
+        if(profile){
+            console.log('profile: ', profile);
+            addProfile(profile);    
+        }
+    })
+    fetchGitHubRepos(inputName, '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')
     .then(data=>{
-    if(data){
-        addProfile(profile)    }
-    }
-    )
+        if(LastRepos){
+            console.log('LastRepos: ', LastRepos);
+            addLastRepos(LastRepos);
+        }
+    })
+    
 })
 
-fetchGitHubUserInfo('LeeMinJii', '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')
+fetchGitHubUserInfo('oyeong011', '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')
+    .then(()=>{
+        if(profile){
+            addProfile(profile)
+            console.log('profile: ', profile);
+        }
+    })
+fetchGitHubRepos('oyeong011', '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')
     .then(data=>{
-    if(data){
-        console.log(profile)
-        addProfile(profile)
-    }
-})
+        if(LastRepos){
+            addLastRepos(LastRepos);
+        }
+    })
+
+
+
 function addProfile(profile){
     $(".profileImg").attr("src", profile.avatar_url);
     
@@ -64,5 +104,30 @@ function addProfile(profile){
     $(".company").text(`Company : ${profile.company}`);
     $(".websiteBlog").text(`Blog : ${profile.blog}`);
     $(".location").text(`Location : ${profile.location}`);
-    $(".MemberSince").text(`Member Since : ${profile.created_at.slice(0,10)}`);
+    $(".MemberSince").text(`Member Since : ${profile.created_at}`);
 }
+function sortRepos(LastRepos){
+    LastRepos.sort((a,b)=> {
+        return new Date(b.pushed_at) - new Date(a.pushed_at);
+    })
+    return LastRepos;
+}
+
+function addLastRepos(LastRepos) { 
+    LastRepos = sortRepos(LastRepos);
+    console.log('LastRepos: ', LastRepos);
+    $(".ReposContainer").remove();
+    LastRepos.forEach(element => {
+        let reposDiv =
+        `<div class="ReposContainer">
+            <a href="#">${element.name}</a>
+            <div class="button-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn1">Stars : ${element.stargazers_count}</button>
+            <button type="button" class="btn btn2">Watchers : ${element.watchers}</button>
+            <button type="button" class="btn btn3">Forks : ${element.forks}</button>
+            </div>
+        </div>`
+        $(".FooterContainer").append(reposDiv);
+    }); 
+}
+
