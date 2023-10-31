@@ -1,12 +1,10 @@
 let profile = null;
 let LastRepos = null
-const fetchGitHubRepos = async (username, token = null)=>{
+const fetchGitHubRepos = async (username)=>{
     const repo_url = `https://api.github.com/users/${username}/repos`;
-    const headers = {
-        'Authorization' : `token ${token}`
-    }
+    
     try {
-        const reposData = await fetch(repo_url, {headers : headers});
+        const reposData = await fetch(repo_url);
         const data = await reposData.json();
 
         if(reposData.status != 200){
@@ -21,14 +19,12 @@ const fetchGitHubRepos = async (username, token = null)=>{
     }
 }
 
-const fetchGitHubUserInfo = async (username, token = null)=>{
+const fetchGitHubUserInfo = async (username)=>{
     const base_url = `https://api.github.com/users/${username}`;
-    const headers = {
-        'Authorization' : `token ${token}`
-    };
+    
 
     try {
-        const response = await fetch(base_url, {headers : headers});
+        const response = await fetch(base_url);
         const data = await response.json();
 
         if(response.status !==200){
@@ -56,14 +52,14 @@ $(".myForm").on("submit", function (e) {
     let inputName = $(".searchInput").val()
     e.preventDefault();
 
-    fetchGitHubUserInfo(inputName, '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')
+    fetchGitHubUserInfo(inputName)
     .then(()=>{
         if(profile){
             console.log('profile: ', profile);
             addProfile(profile);    
         }
     })
-    fetchGitHubRepos(inputName, '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')
+    fetchGitHubRepos(inputName)
     .then(data=>{
         if(LastRepos){
             console.log('LastRepos: ', LastRepos);
@@ -73,14 +69,14 @@ $(".myForm").on("submit", function (e) {
     
 })
 
-fetchGitHubUserInfo('oyeong011', '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')
+fetchGitHubUserInfo('oyeong011')
     .then(()=>{
         if(profile){
             addProfile(profile)
             console.log('profile: ', profile);
         }
     })
-fetchGitHubRepos('oyeong011', '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')
+fetchGitHubRepos('oyeong011')
     .then(data=>{
         if(LastRepos){
             addLastRepos(LastRepos);
