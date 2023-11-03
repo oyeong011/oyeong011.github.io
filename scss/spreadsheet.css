@@ -4,4 +4,26 @@
   border: none;
   padding: 10px;
   display: inline-block;
+}
+
+.cell-row {
+  display: flex;
+}
+
+.cell {
+  width: 80px;
+  border: 1px solid lightgrey;
+  height: 40px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.cell.header {
+  text-align: center;
+  background: #ddd;
+}
+
+.cell.header.active {
+  background: lightblue;
+  color: white;
 }/*# sourceMappingURL=spreadsheet.css.map */
